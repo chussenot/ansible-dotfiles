@@ -9,7 +9,13 @@ provisioner:
 platforms:
   - name: ubuntu-16.04
 
+verifier:
+  name: serverspec
+
 suites:
   - name: default
-    run_list:
-    attributes:
+    verifier:
+      patterns:
+        - roles/ansible-dotfiles/test/integration/default/serverspec/default_spec.rb
+      bundler_path: '/usr/local/bin'
+      rspec_path: '/usr/local/bin'
