@@ -1,2 +1,5 @@
 ---
 # tasks file for ansible-dotfiles
+
+- name: Installs git
+  apt: pkg=git state=present update_cache=true

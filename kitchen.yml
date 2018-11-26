@@ -8,6 +8,7 @@ provisioner:
 
 platforms:
   - name: ubuntu-16.04
+  - name: debian-9
 
 verifier:
   name: serverspec
