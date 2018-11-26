@@ -1,0 +1,5 @@
+---
+- name: Install tools I <3
+  hosts: localhost
+  roles:
+    - ansible-dotfiles
