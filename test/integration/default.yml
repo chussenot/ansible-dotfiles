@@ -1,5 +1,15 @@
 ---
 - name: Install tools I <3
   hosts: localhost
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=true cache_valid_time=600
+      when: ansible_os_family == 'Debian'
+      changed_when: false
+
+    - name: Remove the .dockerenv.
+      file:
+        path: /.dockerenv
+        state: absent
   roles:
     - ansible-dotfiles
