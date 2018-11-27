@@ -1,0 +1,11 @@
+integration_test:
+  image: docker:latest
+  services:
+  - docker:dind
+  script:
+    - 'echo gem: --no-document > $HOME/.gemrc'
+    - apk update
+    - apk add build-base git libffi-dev ruby-dev ruby-bundler
+    - gem install docker kitchen-docker test-kitchen kitchen-ansible kitchen-verifier-serverspec
+    - kitchen --version
+    - kitchen test -d always
